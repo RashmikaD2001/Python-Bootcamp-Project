@@ -1,4 +1,4 @@
-sachindu, [12/4/2024 5:24 PM]
+
 import pandas as pd
 import numpy as np
 dataset1 = pd.read_csv('https://raw.githubusercontent.com/RashmikaD2001/Python-Bootcamp-Project/main/WorldCup_Stats/1975_Match_Stats.csv')
@@ -75,7 +75,7 @@ crick_df['batter_one_score'] = (
     .astype(int)  # Convert to integer
 )
 
-sachindu, [12/4/2024 5:24 PM]
+
 # Extract and clean batter names and scores for the second batter
 crick_df['batter_two'] = crick_df['batter_two_data'].str.split(' - ').str[0].str.strip().fillna('NA')
 crick_df['batter_two_score'] = (
