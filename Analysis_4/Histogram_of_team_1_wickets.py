@@ -101,6 +101,8 @@ crick_df['team_2_runs'] = pd.to_numeric(crick_df['team_2_runs'], errors='coerce'
 crick_df_filtered = crick_df.dropna(subset=['team_1_runs', 'team_2_runs'])
 
 
+
+
 import matplotlib.pyplot as plt
 
 # Assuming your DataFrame is named 'crick_df'
