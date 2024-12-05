@@ -1,7 +1,7 @@
 import pandas as pd
 
 url = "https://raw.githubusercontent.com/Dhanushkaprabhath2001/DashBoardDemo/refs/heads/main/data/cricket_data%20(2).csv"
-df = pd.read_csv(url)
+crick_df = pd.read_csv(url)
 
 
 
@@ -22,3 +22,5 @@ plt.ylabel('Number of Wins')
 plt.xticks(rotation=45, ha='right')
 plt.tight_layout()
 plt.show()
+
+
