@@ -25,6 +25,7 @@ crick_df = crick_df.drop_duplicates(keep=False)
      
 
 crick_df = crick_df.fillna('NA')
+
      
 
 crick_df.loc[crick_df['result'] == 'No result', 'match_status'] = 'abandoned'
@@ -98,3 +99,4 @@ crick_df = crick_df.drop(columns=['batter_one_data', 'batter_two_data'])
      
 
 crick_df = crick_df.drop(columns=['Unnamed: 0.1', 'Unnamed: 0', 'commentary_line', 'best_batters', 'best_bowlers', 'result'])
+
