@@ -2,7 +2,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Load the data
-url = "https://raw.githubusercontent.com/Dhanushkaprabhath2001/DashBoardDemo/refs/heads/main/data/cricket_data%20(2).csv"
+url = "https://raw.githubusercontent.com/RashmikaD2001/Python-Bootcamp-Project/refs/heads/task_2/filtered_data.csv"
+
 crick_df = pd.read_csv(url)
 
 # Filter for finals
