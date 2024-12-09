@@ -101,26 +101,4 @@ crick_df['team_2_runs'] = pd.to_numeric(crick_df['team_2_runs'], errors='coerce'
 crick_df_filtered = crick_df.dropna(subset=['team_1_runs', 'team_2_runs'])
 
 
-
-
-import matplotlib.pyplot as plt
-
-# Assuming your DataFrame is named 'crick_df'
-plt.figure(figsize=(8, 6))  # Adjust figure size if needed
-
-# Convert 'team_1_wickets' to numeric, coercing errors to NaN
-crick_df['team_1_wickets'] = pd.to_numeric(crick_df['team_1_wickets'], errors='coerce')
-
-# Filter out rows with NaN values in 'team_1_wickets'
-crick_df_filtered = crick_df.dropna(subset=['team_1_wickets'])
-
-# Create the histogram
-plt.hist(crick_df_filtered['team_1_wickets'], bins=10, edgecolor='black')  # Adjust bins as needed
-
-# Add labels and title
-plt.xlabel('Team 1 Wickets')
-plt.ylabel('Frequency')
-plt.title('Distribution of Team 1 Wickets')
-
-# Display the plot
-plt.show()
+crick_df[['team_1_runs', 'team_2_runs']].describe()

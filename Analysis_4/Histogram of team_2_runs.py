@@ -101,26 +101,13 @@ crick_df['team_2_runs'] = pd.to_numeric(crick_df['team_2_runs'], errors='coerce'
 crick_df_filtered = crick_df.dropna(subset=['team_1_runs', 'team_2_runs'])
 
 
+# Specify the column for the histogram
+column_name2 = 'team_2_runs'  # Replace with the column name from your CSV
 
-
-import matplotlib.pyplot as plt
-
-# Assuming your DataFrame is named 'crick_df'
-plt.figure(figsize=(8, 6))  # Adjust figure size if needed
-
-# Convert 'team_1_wickets' to numeric, coercing errors to NaN
-crick_df['team_1_wickets'] = pd.to_numeric(crick_df['team_1_wickets'], errors='coerce')
-
-# Filter out rows with NaN values in 'team_1_wickets'
-crick_df_filtered = crick_df.dropna(subset=['team_1_wickets'])
-
-# Create the histogram
-plt.hist(crick_df_filtered['team_1_wickets'], bins=10, edgecolor='black')  # Adjust bins as needed
-
-# Add labels and title
-plt.xlabel('Team 1 Wickets')
+# Plot the histogram using crick_df_filtered
+plt.hist(crick_df_filtered[column_name2], bins=20, color='blue', edgecolor='black')
+plt.title(f'Histogram of {column_name2}')
+plt.xlabel(column_name2)
 plt.ylabel('Frequency')
-plt.title('Distribution of Team 1 Wickets')
-
-# Display the plot
+plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.show()
