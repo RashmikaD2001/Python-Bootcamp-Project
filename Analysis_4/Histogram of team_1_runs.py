@@ -18,7 +18,7 @@ column_name = 'team_1_runs'  # Replace with desired column name
 # Plot the histogram
 plt.figure(figsize=(8, 6))  # Adjust figure size if needed
 plt.hist(crick_df_filtered[column_name], bins=20, color='blue', edgecolor='black')
-plt.title(f'Histogram of {column_name}')
+plt.title(f'Histogram of the total runs scored by Team 1 in their innings')
 plt.xlabel(column_name)
 plt.ylabel('Frequency')
 plt.grid(axis='y', linestyle='--', alpha=0.7)
