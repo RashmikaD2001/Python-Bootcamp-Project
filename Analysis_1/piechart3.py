@@ -1,10 +1,10 @@
 import pandas as pd
 import numpy as np
 
-url = "https://raw.githubusercontent.com/Dhanushkaprabhath2001/DashBoardDemo/refs/heads/main/data/cricket_data%20(2).csv"
+url = "https://raw.githubusercontent.com/RashmikaD2001/Python-Bootcamp-Project/refs/heads/main/cleaned_data.csv"
 crick_df = pd.read_csv(url)
 
-!pip install plotly==5.15.0
+#!pip install plotly==5.15.0
 import plotly.express as px
 
 # Assuming 'crick_df' is your DataFrame
