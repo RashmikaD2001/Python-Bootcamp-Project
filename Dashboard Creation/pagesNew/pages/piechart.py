@@ -4,7 +4,7 @@ from dash import dcc, html, callback
 import plotly.express as px
 from dash.dependencies import Input, Output
 
-dash.register_page(__name__, path='/piechart', name="PIECHART 📊")
+dash.register_page(__name__, path='/piechart', name="PIECHART 🎯")
 
 
 ####################### LOAD DATASET #############################
