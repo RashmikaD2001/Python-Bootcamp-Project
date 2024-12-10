@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 dash.register_page(__name__, path='/dataset', name="Dataset 📋")
 
 ####################### LOAD DATASET #############################
-url = "https://raw.githubusercontent.com/Dhanushkaprabhath2001/DashBoardDemo/refs/heads/main/data/cricket_data%20(2).csv"
+url = "https://raw.githubusercontent.com/RashmikaD2001/Python-Bootcamp-Project/refs/heads/main/cleaned_data.csv"
 df = pd.read_csv(url)
 
 
