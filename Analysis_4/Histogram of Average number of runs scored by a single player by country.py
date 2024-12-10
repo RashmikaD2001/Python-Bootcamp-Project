@@ -1,10 +1,11 @@
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
-url = "https://raw.githubusercontent.com/Dhanushkaprabhath2001/DashBoardDemo/refs/heads/main/data/cricket_data%20(2).csv"
+url = "https://raw.githubusercontent.com/RashmikaD2001/Python-Bootcamp-Project/refs/heads/main/cleaned_data.csv"
 crick_df = pd.read_csv(url)
 
-import pandas as pd
+
 
 # Group by 'team_1' and calculate total runs
 team_stats = crick_df.groupby('team_1')['team_1_runs'].agg(['sum'])
@@ -15,7 +16,7 @@ team_stats = team_stats.rename(columns={'sum': 'Total Runs'})
 # Display the table
 print(team_stats)
 
-import pandas as pd
+
 
 # Group by 'team_2' and calculate total runs
 team_stats = crick_df.groupby('team_2')['team_2_runs'].agg(['sum'])
@@ -26,7 +27,7 @@ team_stats = team_stats.rename(columns={'sum': 'Total Runs'})
 # Display the table
 print(team_stats)
 
-import pandas as pd
+
 
 # Group by 'team_1' and calculate total wickets
 team_stats = crick_df.groupby('team_1')['team_1_wickets'].agg(['sum'])
@@ -37,7 +38,7 @@ team_stats = team_stats.rename(columns={'sum': 'Total wickets'})
 # Display the table
 print(team_stats)
 
-import pandas as pd
+
 
 # Group by 'team_2' and calculate total wickets
 team_stats = crick_df.groupby('team_2')['team_2_wickets'].agg(['sum'])
@@ -48,7 +49,7 @@ team_stats = team_stats.rename(columns={'sum': 'Total wickets'})
 # Display the table
 print(team_stats)
 
-import pandas as pd
+
 
 # Get unique team names
 all_teams = pd.unique(crick_df[['team_1', 'team_2']].values.ravel('K'))
@@ -79,10 +80,10 @@ batting_avg_df = pd.DataFrame.from_dict(batting_averages, orient='index', column
 # Display the table
 print(batting_avg_df)
 
-import matplotlib.pyplot as plt
-import pandas as pd
 
-# Assuming 'batting_avg_df' is your DataFrame
+
+
+
 
 plt.figure(figsize=(12, 6))
 plt.bar(batting_avg_df.index, batting_avg_df['Batting Average'])
