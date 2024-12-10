@@ -1,7 +1,8 @@
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
-url = "https://raw.githubusercontent.com/Dhanushkaprabhath2001/DashBoardDemo/refs/heads/main/data/cricket_data%20(2).csv"
+url = "https://raw.githubusercontent.com/RashmikaD2001/Python-Bootcamp-Project/refs/heads/main/cleaned_data.csv"
 crick_df = pd.read_csv(url)
 
 # Group by 'team_1' and calculate total wickets
@@ -94,8 +95,7 @@ for team in crick_df['team_1'].unique():
 
 
 
-  import pandas as pd
-import numpy as np
+
 
 
 
@@ -114,7 +114,7 @@ bowling_averages_df = pd.DataFrame(team_averages, columns=['Team', 'Bowling Aver
 print(bowling_averages_df.to_string(index=False))
 
 
-import matplotlib.pyplot as plt
+
 
 
 
