@@ -1,7 +1,7 @@
-import pandas as pd 
-import numpy as np 
- 
-url = "https://raw.githubusercontent.com/Dhanushkaprabhath2001/DashBoardDemo/refs/heads/main/data/cricket_data%20(2).csv" 
+import pandas as pd
+import numpy as np
+
+url = "https://raw.githubusercontent.com/Dhanushkaprabhath2001/DashBoardDemo/refs/heads/main/data/cricket_data%20(2).csv"
 crick_df = pd.read_csv(url)
 
 import matplotlib.pyplot as plt
