@@ -2,11 +2,10 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Read the new CSV file into a Pandas DataFrame
-url = "https://raw.githubusercontent.com/Dhanushkaprabhath2001/DashBoardDemo/refs/heads/main/data/cricket_data%20(2).csv"
+url = "https://raw.githubusercontent.com/RashmikaD2001/Python-Bootcamp-Project/refs/heads/main/cleaned_data.csv"
 crick_df = pd.read_csv(url)
 
-# Data Cleaning and Preprocessing (if needed)
-# ... (add any necessary cleaning or preprocessing steps here) ...
+
 
 # Plotting the histogram for 'team_2_runs'
 plt.figure(figsize=(8, 6))  # Adjust figure size if needed
