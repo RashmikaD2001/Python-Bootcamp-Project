@@ -4,46 +4,62 @@ from dash import dcc, html, callback
 from dash.dependencies import Input, Output
 import plotly.express as px
 
-dash.register_page(__name__, path="/heatmap", name="Heatmap Analysis 🔥")
+# Register the page
+dash.register_page(__name__, path="/map", name="World Cup Host Countries 🌍")
 
 # Load the dataset
 url = "https://raw.githubusercontent.com/Dhanushkaprabhath2001/DashBoardDemo/refs/heads/main/data/cricket_data%20(2).csv"
 df = pd.read_csv(url)
 
+# Map "England" to "United Kingdom" and other potential mismatches
+country_name_mapping = {
+    "England": "United Kingdom",
+    # Add other mappings here if needed
+}
+df['host_country'] = df['host_country'].replace(country_name_mapping)
+
 # Preprocess the data
-# Create a unified column for teams to simplify grouping
-df_teams = pd.melt(
-    df, 
-    id_vars=['world_cup_year'], 
-    value_vars=['team_1', 'team_2'], 
-    var_name='team_type', 
-    value_name='team'
+df_host_countries = df[['world_cup_year', 'host_country']].drop_duplicates()
+
+# Group by host_country and aggregate years into a single string
+host_country_data = (
+    df_host_countries
+    .groupby('host_country')
+    .agg(
+        occurrences=('world_cup_year', 'size'),
+        years=('world_cup_year', lambda x: ', '.join(sorted(x.astype(str))))
+    )
+    .reset_index()
 )
 
-# Aggregate data by year and team
-df_grouped = df_teams.groupby(['world_cup_year', 'team']).size().reset_index(name='matches_played')
-
-# Define layout
+# Define the layout for the map page
 layout = html.Div([
-    html.H2("Heatmap of Matches Played by Teams in World Cups", style={'textAlign': 'center'}),
-    dcc.Graph(id='heatmap', style={'height': '75vh'}),
+    html.H2("World Cup Host Countries (1975-2023)", style={'textAlign': 'center'}),
+    dcc.Graph(id='world-map')
 ])
 
+# Define the callback for updating the map
 @callback(
-    Output('heatmap', 'figure'),
-    Input('heatmap', 'id')  # Trigger on page load
+    Output('world-map', 'figure'),
+    Input('world-map', 'id')  # Dummy input to trigger map generation
 )
-def generate_heatmap(_):
-    # Pivot table to create heatmap data
-    heatmap_data = df_grouped.pivot(index='team', columns='world_cup_year', values='matches_played').fillna(0)
-
-    # Generate heatmap using Plotly Express
-    fig = px.imshow(
-        heatmap_data,
-        labels=dict(x="World Cup Year", y="Team", color="Matches Played"),
-        x=heatmap_data.columns,
-        y=heatmap_data.index,
-        color_continuous_scale='Viridis'
+def display_host_countries(_):
+    # Create the choropleth map
+    fig = px.choropleth(
+        host_country_data,
+        locations='host_country',
+        locationmode='country names',
+        color='occurrences',
+        hover_name='host_country',
+        hover_data={'occurrences': False, 'years': True},
+        title='World Cup Host Countries (1975-2023)',
+        color_continuous_scale='Viridis',
     )
-    fig.update_layout(title="Heatmap of Matches Played by Teams in World Cups")
+    fig.update_geos(
+        showcountries=True,
+        projection_type='natural earth'
+    )
+    fig.update_layout(
+        hoverlabel=dict(bgcolor="white", font_size=12, font_family="Arial")
+    )
     return fig
